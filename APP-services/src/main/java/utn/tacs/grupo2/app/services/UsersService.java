@@ -45,7 +45,7 @@ public class UsersService {
 		Match m1 = new Match();
 		m1.setMaxCapacity(22);
 		m1.setStartingLineupQuantity(23);
-		m1.setSport("Voley");;
+		m1.setSport("Lololol");;
 		matches.add(m1);
 		return matches; 
 	}
@@ -67,7 +67,7 @@ public class UsersService {
 
 	
 	/**
-	 * Tiene como objetivo conocer los partidos also caules se anoto un amigo
+	 * Tiene como objetivo conocer los partidos a los cuales se anoto un amigo
 	 * @param friendId
 	 * @return
 	 */
@@ -94,7 +94,7 @@ public class UsersService {
 	 * @param matchFriendId
 	 * @return
 	 */
-	@RequestMapping(value="/joined/{matchFriendId}",method=RequestMethod.POST)
+	@RequestMapping(value="/join/{matchFriendId}",method=RequestMethod.POST)
 	public @ResponseBody String join(@PathVariable("matchFriendId") String matchFriendId){
 		return "asignado-"+matchFriendId;
 	}
@@ -107,7 +107,64 @@ public class UsersService {
 	@RequestMapping(value="/{myMatchId}/notify/{friendId}",method=RequestMethod.POST)
 	public @ResponseBody String notifyFriend(@PathVariable("myMatchId") String myMatchId,@PathVariable("friendId") String friendId){
 		return "notificando-"+myMatchId+" a "+friendId;
-	}	
+	}
+	
+	/**
+	 * punto 7 - Como usuario quiero ver los partidos que me recomendaron, y anotarme o rechazarlos.
+	 * @param matchFriendId
+	 * @return
+	 */
+	@RequestMapping(value="/me/recommended/matches",method=RequestMethod.GET)
+	public @ResponseBody List<Match> recommendedMatches(){
+		
+		User user=new User();
+		user.setName("Juan");
+		user.setLastName("Poncho");
+		User user2=new User();
+		user2.setName("Pancho");
+		user2.setLastName("Suarez");
+		User user3=new User();
+		user3.setName("Guillermo");
+		user3.setLastName("Pepon");
+		User user4=new User();
+		user4.setName("Hideo");
+		user4.setLastName("Kojima");
+		User user5=new User();
+		user5.setName("Troy");
+		user5.setLastName("Baker");
+		
+		List<Match> matches=new ArrayList<Match>();
+		
+		Match m1 = new Match();
+		m1.setMaxCapacity(22);
+		m1.setStartingLineupQuantity(23);
+		m1.setSport("Voley");;
+		m1.addUser(user4);
+		m1.addUser(user5);
+		m1.addUser(user);
+		matches.add(m1);
+		
+		Match m2 = new Match();
+		m2.setMaxCapacity(22);
+		m2.setStartingLineupQuantity(23);
+		m2.setSport("Fulbo");;
+		m2.addUser(user2);
+		m2.addUser(user3);
+		m2.addUser(user4);
+		matches.add(m2);
+		
+		return matches;
+	}
+	
+	/**
+	 * punto 11 - Como usuario que se anotó en un partido quiero poder borrarme del mismo.
+	 * @param matchFriendId
+	 * @return
+	 */
+	@RequestMapping(value="/unsubscribe/{myMatchId}",method=RequestMethod.DELETE)
+	public @ResponseBody String unsubscibe(@PathVariable("myMatchId") String myMatchId){
+		return "Se borró del partido-"+myMatchId;
+	}
 	
 	
 }
