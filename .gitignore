@@ -1,0 +1,4 @@
+*.classpath
+APP-services/.settings/org.eclipse.jdt.core.prefs
+*.properties
+APP-services/target/maven-archiver/pom.properties
