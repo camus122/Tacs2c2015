@@ -1,6 +1,8 @@
 package utn.tacs.grupo2.app.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Match implements Serializable {
 
@@ -9,6 +11,11 @@ public class Match implements Serializable {
 	private String sport;
 	private int maxCapacity;
 	private int startingLineupQuantity;
+	private List<User> registeredUsers;
+	
+	public Match(){
+		registeredUsers = new ArrayList<User>();
+	}
 
 	public String getSport() {
 		return sport;
@@ -33,5 +40,14 @@ public class Match implements Serializable {
 	public void setStartingLineupQuantity(int startingLineupQuantity) {
 		this.startingLineupQuantity = startingLineupQuantity;
 	}
+	
+	public List<User> getRegisteredUsers() {
+		return registeredUsers;
+	}
+	
+	public void addUser(User user) {
+		registeredUsers.add(user);
+	}
+	
 
 }
