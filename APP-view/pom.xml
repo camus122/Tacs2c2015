@@ -9,7 +9,16 @@
 	<name>APP-project Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	
+  <properties>
+    <jettyVersion>9.3.4.RC0</jettyVersion>
+  </properties>	
+	
 	<dependencies>
+	   <dependency>
+	      <groupId>org.eclipse.jetty</groupId>
+	      <artifactId>jetty-server</artifactId>
+	      <version>${jettyVersion}</version>
+	    </dependency>	
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -45,7 +54,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.11.v20150529</version>
+				<version>${jettyVersion}</version>
  				<configuration> 
 					<scanIntervalSeconds>10</scanIntervalSeconds>
  					<webApp> 

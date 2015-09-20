@@ -16,10 +16,10 @@
 	<import resource="classpath:config-services.xml"/>
     
     <!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory -->
-    <!--bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".html" />
-    </bean-->
+    </bean>
     
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
@@ -28,8 +28,8 @@
 	<mvc:default-servlet-handler/>
 	
     
-<!--     <mvc:view-controller path="app" view-name="index"/> -->
-<!--     <mvc:view-controller path="app/home" view-name="home"/> -->
+    <mvc:view-controller path="app" view-name="index"/>
+    <mvc:view-controller path="app/home" view-name="home"/>
     
 <!--     Administracion  -->
 <!-- 	    Usuarios -->
