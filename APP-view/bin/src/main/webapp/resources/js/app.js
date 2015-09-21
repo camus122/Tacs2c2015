@@ -5,8 +5,7 @@ app.config(function($routeProvider, $httpProvider) {
       $routeProvider.
    	//Home
       	when('/', {controller:emptyController, templateUrl:"app/home"}).
-      	when('/reservas', {controller:reservaController, templateUrl:"app/home"}).
-      	when('/prueba', {controller:myController, templateUrl:"app/test"}).
+      	when('/reservas', {controller:reservaController, templateUrl:"app/home"}).      	
 //      	//Administracion
 //      	//Registros
 //      	when('/consultarRegistros', {controller:showRecordsController, templateUrl:'app/records'}).

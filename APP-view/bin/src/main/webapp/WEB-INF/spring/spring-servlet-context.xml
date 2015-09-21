@@ -30,7 +30,6 @@
     
     <mvc:view-controller path="app" view-name="index"/>
     <mvc:view-controller path="app/home" view-name="home"/>
-     <mvc:view-controller path="app/test" view-name="myPrueba"/>   
     
 <!--     Administracion  -->
 <!-- 	    Usuarios -->
