@@ -1,5 +1,7 @@
 package utn.tacs.grupo2.app.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import utn.tacs.grupo2.app.model.Match;
+import utn.tacs.grupo2.app.util.ObjectMemoryRepository;
 
 @Controller
 @RequestMapping(value = "/matches")
@@ -24,7 +27,7 @@ public class MatchServices {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody String createMatch(@RequestBody  Match match){
-		System.out.println("match.sport: "+match.getSport()+" for "+match.getMaxCapacity());
+		ObjectMemoryRepository.getMatches().add(match);
 		return "id-"+match.getSport()+"-"+match.getMaxCapacity();
 	}
 	
@@ -35,6 +38,10 @@ public class MatchServices {
 	 */
 	@RequestMapping(method = RequestMethod.PUT)
 	public @ResponseBody String updateMatch(@RequestBody  Match match){
+		List<Match> matches = ObjectMemoryRepository.getMatches();
+		int index=matches.indexOf(match);
+		matches.remove(index);
+		matches.add(match);
 		return "update-"+match.getSport()+"-"+match.getMaxCapacity();
 	}	
 	
@@ -44,8 +51,14 @@ public class MatchServices {
 	 * @return
 	 */
 	@RequestMapping(value="/{matchId}",method = RequestMethod.GET)
-	public @ResponseBody String getMatch(@PathVariable("matchId") String id){
-		return "get-"+id;
+	public @ResponseBody Match getMatch(@PathVariable("matchId") String id){
+		List<Match> matches = ObjectMemoryRepository.getMatches();
+		for(Match match:matches){
+			if(id.equals(match.getId())){
+				return match;
+			}
+		}
+		throw new IllegalStateException("Si llego aca es porque no encontro y esot no deberia pasar.");
 	}
 	
 	/**
@@ -55,6 +68,21 @@ public class MatchServices {
 	 */
 	@RequestMapping(value="/{matchId}",method = RequestMethod.DELETE)
 	public @ResponseBody String deleteMatch(@PathVariable("matchId") String id){
+		List<Match> matches = ObjectMemoryRepository.getMatches();
+		boolean remove=false;
+		int index=0;
+		for(Match match:matches){
+			if(id.equals(match.getId())){
+				remove=true;
+				break;
+			}
+			index++;
+		}
+		if(remove){
+			matches.remove(index);
+		}else{
+			throw new IllegalStateException("Si llego aca es porque no encontro y esot no deberia pasar.");	
+		}
 		return "delete-"+id;
 	}	
 

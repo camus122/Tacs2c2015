@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+#Mon Sep 07 22:36:40 ART 2015
+=======
+#Mon Sep 07 23:00:54 ART 2015
+>>>>>>> 8920fa82597d0fae03afec06f771c358e514b817
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.6
+eclipse.preferences.version=1
+org.eclipse.jdt.core.compiler.source=1.6
+org.eclipse.jdt.core.compiler.compliance=1.6
