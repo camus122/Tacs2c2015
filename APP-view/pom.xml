@@ -10,7 +10,7 @@
 	<url>http://maven.apache.org</url>
 	
   <properties>
-    <jettyVersion>9.3.4.RC0</jettyVersion>
+    <jettyVersion>9.3.3.v20150827</jettyVersion>
   </properties>	
 	
 	<dependencies>
@@ -45,8 +45,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 <!-- 					<webXml>src\main\webapp\WEB-INF\web.xml</webXml> -->
 				</configuration>
 			</plugin>
@@ -56,9 +56,9 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jettyVersion}</version>
  				<configuration> 
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+<!-- 					<scanIntervalSeconds>10</scanIntervalSeconds> -->
  					<webApp> 
- 						<contextPath>/app</contextPath> 
+ 						<contextPath>/APP</contextPath> 
  					</webApp> 
 				</configuration>
 			</plugin>
