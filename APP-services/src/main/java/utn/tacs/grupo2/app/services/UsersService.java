@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import utn.tacs.grupo2.app.model.Match;
 import utn.tacs.grupo2.app.model.User;
+import utn.tacs.grupo2.app.util.ObjectMemoryRepository;
 
 @Controller
 @RequestMapping(value = "/users")
@@ -18,20 +19,7 @@ public class UsersService {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody List<User> getUsers(){
-		User user=new User();
-		user.setName("ffff");
-		user.setLastName("ffff");
-		User user2=new User();
-		user2.setName("fff222f");
-		user2.setLastName("ff333ff");
-		User user3=new User();
-		user3.setName("Guillermo");
-		user3.setLastName("flema");		
-		List<User> usuarios=new ArrayList<User>();
-		usuarios.add(user);
-		usuarios.add(user2);
-		usuarios.add(user3);
-		return usuarios;
+		return ObjectMemoryRepository.getUsers();
 	}
 
 	/**
@@ -41,13 +29,8 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/me/created/matches",method=RequestMethod.GET)
 	public @ResponseBody List<Match> myMatches(){
-		List<Match> matches=new ArrayList<Match>();
-		Match m1 = new Match();
-		m1.setMaxCapacity(22);
-		m1.setStartingLineupQuantity(23);
-		m1.setSport("Lololol");;
-		matches.add(m1);
-		return matches; 
+		//Falta agregar la logica donde se filtra por partidos mios
+		return ObjectMemoryRepository.getMatches(); 
 	}
 	
 	/**
@@ -56,13 +39,8 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/me/joined/matches",method=RequestMethod.GET)
 	public @ResponseBody List<Match> joinMatches(){
-		List<Match> matches=new ArrayList<Match>();
-		Match m1 = new Match();
-		m1.setMaxCapacity(22);
-		m1.setStartingLineupQuantity(23);
-		m1.setSport("Voley");;
-		matches.add(m1);
-		return matches; 
+		//Falta agregar la logica donde se filtra por los partidos que me anote
+		return ObjectMemoryRepository.getMatches(); 
 	}	
 
 	
@@ -96,6 +74,9 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/join/{matchFriendId}",method=RequestMethod.POST)
 	public @ResponseBody String join(@PathVariable("matchFriendId") String matchFriendId){
+		ObjectMemoryRepository.getFriendMatches();//User el id para obtener el match
+		Match friendMatch=null;//Aca se guardaria el match de tu amigo
+		ObjectMemoryRepository.getMatches().add(friendMatch);//Una vesz hecho se agregaa tu lista
 		return "asignado-"+matchFriendId;
 	}
 	
@@ -106,6 +87,7 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/{myMatchId}/notify/{friendId}",method=RequestMethod.POST)
 	public @ResponseBody String notifyFriend(@PathVariable("myMatchId") String myMatchId,@PathVariable("friendId") String friendId){
+		//Posiblente esto quede del lado del cliente porque se notifica por facebook.
 		return "notificando-"+myMatchId+" a "+friendId;
 	}
 	
@@ -116,44 +98,7 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/me/recommended/matches",method=RequestMethod.GET)
 	public @ResponseBody List<Match> recommendedMatches(){
-		
-		User user=new User();
-		user.setName("Juan");
-		user.setLastName("Poncho");
-		User user2=new User();
-		user2.setName("Pancho");
-		user2.setLastName("Suarez");
-		User user3=new User();
-		user3.setName("Guillermo");
-		user3.setLastName("Pepon");
-		User user4=new User();
-		user4.setName("Hideo");
-		user4.setLastName("Kojima");
-		User user5=new User();
-		user5.setName("Troy");
-		user5.setLastName("Baker");
-		
-		List<Match> matches=new ArrayList<Match>();
-		
-		Match m1 = new Match();
-		m1.setMaxCapacity(22);
-		m1.setStartingLineupQuantity(23);
-		m1.setSport("Voley");;
-		m1.addUser(user4);
-		m1.addUser(user5);
-		m1.addUser(user);
-		matches.add(m1);
-		
-		Match m2 = new Match();
-		m2.setMaxCapacity(22);
-		m2.setStartingLineupQuantity(23);
-		m2.setSport("Fulbo");;
-		m2.addUser(user2);
-		m2.addUser(user3);
-		m2.addUser(user4);
-		matches.add(m2);
-		
-		return matches;
+			return ObjectMemoryRepository.getRecomendedMatches();
 	}
 	
 	/**
@@ -163,6 +108,9 @@ public class UsersService {
 	 */
 	@RequestMapping(value="/unsubscribe/{myMatchId}",method=RequestMethod.DELETE)
 	public @ResponseBody String unsubscibe(@PathVariable("myMatchId") String myMatchId){
+		@SuppressWarnings("unused")
+		List<Match> myMatches=joinMatches();
+		//iterar y borrarel dato
 		return "Se borró del partido-"+myMatchId;
 	}
 	

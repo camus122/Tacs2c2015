@@ -4,6 +4,7 @@ var app =angular.module('app',['ngRoute','ngResource','restApiModule']);
 app.config(function($routeProvider, $httpProvider) {
       $routeProvider.
    	//Home
+<<<<<<< HEAD
       	when('/', {controller:emptyController, templateUrl:"app/home"}).
       	when('/reservas', {controller:reservaController, templateUrl:"app/home"}).
       	when('/prueba', {controller:myController, templateUrl:"app/test"}).
@@ -33,14 +34,15 @@ app.config(function($routeProvider, $httpProvider) {
 //      	when('/crearRegistro_4', {controller:createRecordController, templateUrl:'app/recordTemplateStep4'}).
 //      	when('/crearRegistro_5', {controller:createRecordController, templateUrl:'app/recordTemplateStep5'}).
 //     	
+=======
+      	when('/', {controller:loginController, templateUrl:"app/login"}).
+      	when('/home', {controller:homeController, templateUrl:"app/home"}).      	
+      	//Administracion
+      	//Partidos
+      	when('/createMatch', {controller:createMatchController, templateUrl:'app/matchTemplate'}).//Consulta
+      	when('/queryMatch', {controller:queryMatchController, templateUrl:'app/matchTemplate'}).//Consulta
+      	when('/updateMatch/:id', {controller:updateMatchController, templateUrl:'app/matchTemplate'}).//Modificacion
+>>>>>>> b269eb3befd56b7deb8d67e7b2790b1d9da663cc
       	otherwise({redirectTo:'/'});
-//      
-     
 });
 
-
-//app.run(function(sessionManagerService){
-//
-//});
-  
-  

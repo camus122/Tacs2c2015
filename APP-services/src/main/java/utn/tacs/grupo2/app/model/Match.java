@@ -8,6 +8,7 @@ public class Match implements Serializable {
 
 	private static final long serialVersionUID = 1183638360080914911L;
 
+	private String id;
 	private String sport;
 	private int maxCapacity;
 	private int startingLineupQuantity;
@@ -48,6 +49,15 @@ public class Match implements Serializable {
 	public void addUser(User user) {
 		registeredUsers.add(user);
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 
+	
 }
