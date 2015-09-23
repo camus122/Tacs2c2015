@@ -16,14 +16,29 @@
 <div class="wrapper">
 	<form ng-submit="successEvent()">
 		<h2>{{titulo}}</h2>
-		
-		<br>
-		Deporte:<input type="text" ng-model="nuevoAlumno.nombre"></input><br>
-		Cantidad de jugadores titulares:  <input type="text" ng-model="nuevoAlumno.edad"></input><br>
-		Cantidad de jugadores suplente: <input type="text" ng-model="nuevoAlumno.curso"></input><br>
+		<table width = "60%"> 
+		<tr>
+			<td>Deporte:</td><td><input type="text" ng-model="nuevoPartido.deporte"></input></td>
+		</tr>
+		<tr>
+			<td>Lugar:</td><td><input type="text" ng-model="nuevoPartido.lugar"></input></td>
+		</tr>
+		<tr>
+			<td>Fecha:</td><td><input type="text" ng-model="nuevoPartido.fecha"></input></td>
+		</tr>
+		<tr>
+			<td>Hora:</td><td><input type="text" ng-model="nuevoPartido.hora"></input></td>
+		</tr>
+		<tr>
+			<td>Cantidad de jugadores titulares:</td><td><input type="text" ng-model="nuevoPartido.titulares"></input></td>
+		</tr>
+		<tr>
+			<td>Cantidad de jugadores suplente:</td><td><input type="text" ng-model="nuevoPartido.suplentes"></input></td>
+		</tr>
+		</table>
 		<button type="submit" >Volver</button>
 		<button ng-click="Save()">Guargar</button>
 	</form>
 </div>
-	
+<br>	
 </body>

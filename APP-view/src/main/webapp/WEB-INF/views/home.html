@@ -8,6 +8,7 @@
 	background: #fff;
 	border-radius: 15px;
 	padding: 10px; 
+
 }
 </style>
 
@@ -33,33 +34,48 @@
 					<div class="full col-sm-9">
 						<!-- content-->
 					</div>
-					<h2>
-						Partidos Creados
-					</h2>
-					<ul>
-						<li ng-repeat = "creado in partidosCreados">
-							<p>Lugar: {{creado.lugar}}, Tipo: {{creado.category}}
-							<i ng-click="create()" class="glyphicon glyphicon-plus"></i>
-							<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
-							<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
-							<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
-							</p>
-						</li>
-					</ul>
-					<br>
-					<h2>
-						Partidos Invitados
-					</h2>
-					<ul>
-						<li ng-repeat = "invitado in partidosInvitado">
-							<p>Lugar: {{invitado.lugar}}, Tipo: {{invitado.category}}
-							<i class="glyphicon glyphicon-plus"></i>
-							<i ng-click="query()" class="glyphicon glyphicon-zoom-in"></i>
-							<i class="glyphicon glyphicon-pencil"></i>	
-							<i class="glyphicon glyphicon-trash"></i>
-							</p>
-						</li>
-					</ul>
+					<h2>Partidos Creados</h2>
+					<table width = "100%"> 
+						<tr>
+							<td>Deporte</td>
+							<td>Lugar</td>
+							<td>Fecha</td>
+							<td>Hora</td>
+							<td></td>
+						</tr>
+ 						<tr ng-repeat = "creado in partidosCreados">
+							<td>{{creado.deporte}}</td>
+							<td>{{creado.lugar}}</td>
+							<td>{{creado.fecha}}</td>
+							<td>{{creado.hora}}</td>
+							<td><i ng-click="create()" class="glyphicon glyphicon-plus"></i>
+								<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
+								<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
+								<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
+							</td>
+  						</tr>
+					</table>
+					<h2>Partidos Invitados</h2>
+					<table width = "100%"> 
+						<tr>
+							<td>Deporte</td>
+							<td>Lugar</td>
+							<td>Fecha</td>
+							<td>Hora</td>
+							<td></td>
+						</tr>
+ 						<tr ng-repeat = "invitado in partidosInvitado">
+							<td>{{invitado.deporte}}</td>
+							<td>{{invitado.lugar}}</td>
+							<td>{{invitado.fecha}}</td>
+							<td>{{invitado.hora}}</td>
+							<td><i ng-click="create()" class="glyphicon glyphicon-plus"></i>
+								<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
+								<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
+								<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
+							</td>
+  						</tr>
+					</table>
 				</div>
 				<!-- main-->
 			</div>

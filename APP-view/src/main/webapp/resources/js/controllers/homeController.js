@@ -23,19 +23,19 @@ function homeController($scope,$location){
 	}
 	
 	$scope.partidosCreados = [
-	                   {id:1, lugar: 'La Boca', category: 'Creados'},
-	                   {id:2, lugar: 'Boedo', category: 'Creados'},
-	                   {id:3, lugar: 'Almagro', category: 'Creados'},
-	                   {id:4, lugar: 'Caballito', category: 'Creados'}
-	                   ];
+	                          {id:1, deporte:'Futbol 11', lugar: 'La Boca', fecha: '07/10/2015',hora: '18:00'},
+	                          {id:2, deporte:'Futbol  5', lugar: 'Boedo', fecha: '07/10/2015',hora: '19:00'},
+	                          {id:3, deporte:'Futbol  5', lugar: 'Almagro', fecha: '07/10/2015',hora: '20:00'},
+	                          {id:4, deporte:'Futbol  7', lugar: 'Caballito', fecha: '07/10/2015',hora: '21:00'},
+	                          ];
 
 
 	$scope.partidosInvitado = [
-	                   {id:1, lugar: 'La Boca', category: 'Invitado'},
-	                   {id:2, lugar: 'Boedo', category: 'Invitado'},
-	                   {id:3, lugar: 'Almagro', category: 'Invitado'},
-	                   {id:4, lugar: 'Caballito', category: 'Invitado'}
-	                   ];
+	    	                   {id:1, deporte:'Futbol  5', lugar: 'Caballito', fecha: '07/10/2015',hora: '18:00'},
+	    	                   {id:2, deporte:'Futbol  5', lugar: 'Boedo', fecha: '07/10/2015',hora: '19:00'},
+	    	                   {id:3, deporte:'Futbol 11', lugar: 'Almagro', fecha: '07/10/2015',hora: '20:00'},
+	    	                   {id:4, deporte:'Futbol  7', lugar: 'Caballito', fecha: '07/10/2015',hora: '21:00'},
+	    	                   ];
 
 
 }
