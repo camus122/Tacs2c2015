@@ -3,5 +3,6 @@ utn\tacs\grupo2\app\model\Match.class
 utn\tacs\grupo2\app\model\Authentication.class
 utn\tacs\grupo2\app\services\MatchServices.class
 utn\tacs\grupo2\app\services\AuthenticationService.class
+utn\tacs\grupo2\app\util\ObjectMemoryRepository.class
 utn\tacs\grupo2\app\services\AdminService.class
 utn\tacs\grupo2\app\services\UsersService.class

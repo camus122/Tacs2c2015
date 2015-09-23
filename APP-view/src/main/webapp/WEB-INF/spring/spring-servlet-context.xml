@@ -31,11 +31,7 @@
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="app/login" view-name="login"/>
     <mvc:view-controller path="app/home" view-name="home"/>
-<<<<<<< HEAD
-     <mvc:view-controller path="app/test" view-name="myPrueba"/>   
-=======
     <mvc:view-controller path="app/matchTemplate" view-name="matchTemplate"/>
->>>>>>> b269eb3befd56b7deb8d67e7b2790b1d9da663cc
     
     
 	<!-- Beans -->

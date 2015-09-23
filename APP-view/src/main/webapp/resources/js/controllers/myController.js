@@ -10,9 +10,9 @@ function myController($scope,restApi){
 //	}
 		
 	//Cargar datos en el servidor
-	$scope.add=function(){
-	restApi.postCall
-	}
+	//$scope.add=function(){
+	//restApi.postCall
+	//}
 		
 }
 		
