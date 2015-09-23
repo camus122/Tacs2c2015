@@ -1,6 +1,8 @@
 //Controlador de matchTemplate
 function createMatchController($scope,$location){
-	$scope.titulo='Estoy en createMatchController';
+	$scope.titulo='Crear Partido';
+	
+	
 	$scope.successEvent=function(){
 		//accion del submit
 		alert('crear'); //"CREA"

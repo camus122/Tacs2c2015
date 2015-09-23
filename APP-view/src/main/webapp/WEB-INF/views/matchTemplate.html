@@ -1,11 +1,29 @@
 <head>
 </head>
+<style>
+.wrapper{
+	width: 650px;
+	margin: 0 auto;
+	box-shadow: 5px 5px 5px #555;
+	background: #fff;
+	border-radius: 15px;
+	padding: 10px; 
+}
+</style>
+
 <body>
 <br>
+<div class="wrapper">
 	<form ng-submit="successEvent()">
-		{{titulo}}
-		<input ng-model="tituloEvento">
-		<button type="submit" >aceptar</button>
+		<h2>{{titulo}}</h2>
+		
+		<br>
+		Deporte:<input type="text" ng-model="nuevoAlumno.nombre"></input><br>
+		Cantidad de jugadores titulares:  <input type="text" ng-model="nuevoAlumno.edad"></input><br>
+		Cantidad de jugadores suplente: <input type="text" ng-model="nuevoAlumno.curso"></input><br>
+		<button type="submit" >Volver</button>
+		<button ng-click="Save()">Guargar</button>
 	</form>
+</div>
 	
 </body>

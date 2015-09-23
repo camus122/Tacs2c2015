@@ -37,5 +37,5 @@ function homeController($scope,$location){
 	                   {id:4, lugar: 'Caballito', category: 'Invitado'}
 	                   ];
 
-	
+
 }
