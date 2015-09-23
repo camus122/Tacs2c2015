@@ -7,6 +7,20 @@ function homeController($scope,$location){
 		$location.path('/createMatch');
 	}
 	
+	$scope.query=function(){
+		//redirecciona a la pagina para la modificacion
+		$location.path('/queryMatch');
+	}
+	
+	$scope.update=function(){
+		//redirecciona a la pagina para la modificacion
+		$location.path('/updateMatch/:id');
+	}
+	
+	$scope.deletee=function(){
+		//preguntar si se quiere borrar el registro
+		alert('Seguro que quiere borrar el registro'); //"CREA"
+	}
 	
 	$scope.partidosCreados = [
 	                   {id:1, lugar: 'La Boca', category: 'Creados'},

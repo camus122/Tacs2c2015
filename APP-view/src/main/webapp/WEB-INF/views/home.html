@@ -29,8 +29,9 @@
 						<li ng-repeat = "creado in partidosCreados">
 							<p>Lugar: {{creado.lugar}}, Tipo: {{creado.category}}
 							<i ng-click="create()" class="glyphicon glyphicon-plus"></i>
-							<i class="glyphicon glyphicon-pencil"></i>	
-							<i class="glyphicon glyphicon-trash"></i>
+							<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
+							<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
+							<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
 							</p>
 						</li>
 					</ul>
@@ -42,6 +43,7 @@
 						<li ng-repeat = "invitado in partidosInvitado">
 							<p>Lugar: {{invitado.lugar}}, Tipo: {{invitado.category}}
 							<i class="glyphicon glyphicon-plus"></i>
+							<i ng-click="query()" class="glyphicon glyphicon-zoom-in"></i>
 							<i class="glyphicon glyphicon-pencil"></i>	
 							<i class="glyphicon glyphicon-trash"></i>
 							</p>
