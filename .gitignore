@@ -2,3 +2,6 @@
 APP-services/.settings/org.eclipse.jdt.core.prefs
 *.properties
 APP-services/target/maven-archiver/pom.properties
+*.lst
+APP-services/target/**
+APP-view/target/**
