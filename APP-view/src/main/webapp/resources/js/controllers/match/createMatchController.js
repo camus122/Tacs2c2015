@@ -2,6 +2,8 @@
 function createMatchController($scope,$location){
 	$scope.titulo='Crear Partido';
 	
+	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+	
 	//esta funcion deberia, guardar en nuevo partido pero no funciona 
 	$scope.Save=function(){
 		$scope.partidosCreados.push({Deporte:$scope.nuevoPartido.deporte});

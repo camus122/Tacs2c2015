@@ -1,4 +1,4 @@
-var app =angular.module('app',['ngRoute','ngResource','restApiModule']);
+var app =angular.module('app',['ngRoute','ngResource','restApiModule','ngMap']);
 
 
 app.config(function($routeProvider, $httpProvider) {
