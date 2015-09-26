@@ -9,7 +9,7 @@ app.config(function($routeProvider, $httpProvider) {
       	//Administracion
       	//Partidos
       	when('/createMatch', {controller:createMatchController, templateUrl:'app/matchTemplate'}).//Consulta
-      	when('/queryMatch', {controller:queryMatchController, templateUrl:'app/matchTemplate'}).//Consulta
+      	when('/queryMatch/:id', {controller:queryMatchController, templateUrl:'app/matchTemplate'}).//Consulta
       	when('/updateMatch/:id', {controller:updateMatchController, templateUrl:'app/matchTemplate'}).//Modificacion
       	otherwise({redirectTo:'/'});
 });

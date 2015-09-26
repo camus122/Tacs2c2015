@@ -47,10 +47,10 @@
 							<td>{{creado.lugar}}</td>
 							<td>{{creado.fecha}}</td>
 							<td>{{creado.hora}}</td>
-							<td><i ng-click="create()" class="glyphicon glyphicon-plus"></i>
-								<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
-								<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
-								<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
+							<td>
+								<i ng-click="query(creado.id)"  class="glyphicon glyphicon-zoom-in"></i>
+								<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>	
+								<i ng-click="remove(creado.id)" class="glyphicon glyphicon-trash"></i>
 							</td>
   						</tr>
 					</table>
@@ -61,6 +61,7 @@
 							<td>Lugar</td>
 							<td>Fecha</td>
 							<td>Hora</td>
+							<td>Id</td>
 							<td></td>
 						</tr>
  						<tr ng-repeat = "invitado in partidosInvitado">
@@ -68,19 +69,20 @@
 							<td>{{invitado.lugar}}</td>
 							<td>{{invitado.fecha}}</td>
 							<td>{{invitado.hora}}</td>
-							<td><i ng-click="create()" class="glyphicon glyphicon-plus"></i>
-								<i ng-click="query()"  class="glyphicon glyphicon-zoom-in"></i>
-								<i ng-click="update()" class="glyphicon glyphicon-pencil"></i>	
-								<i ng-click="deletee()" class="glyphicon glyphicon-trash"></i>
+							<td>{{invitado.id}}</td>
+							<td>
+								<i ng-click="query(invitado.id)"  class="glyphicon glyphicon-zoom-in"></i>
+								<i ng-click="remove(invitado.id)" class="glyphicon glyphicon-trash"></i>
 							</td>
   						</tr>
 					</table>
 				</div>
 				<!-- main-->
 			</div>
-
+			<button  type="button" class="btn btn-success" ng-click="create()">Crear</button>
 		</div>
 	</div>
+	
 	<br>
 </body>
 

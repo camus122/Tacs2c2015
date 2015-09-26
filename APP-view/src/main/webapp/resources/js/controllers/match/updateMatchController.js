@@ -1,10 +1,19 @@
 //Controlador de matchTemplate
-function updateMatchController($scope,$location){
-	$scope.titulo='Modificar partido.';
+function updateMatchController($scope,$location,$routeParams,restApi){
+	$scope.confirmLabel='Actualizar';
+	$scope.cancelLabel='Cancelar';
+	
+	restApi.getCall('matches/'+$routeParams.id,{},false,function(message){
+		$scope.match=message.body;
+	})	
+	
 	$scope.successEvent=function(){
-		//accion del submit
-		alert('modificacion')
-		//redirige la ruta valida cuando se redirige son las definidas en app.js  el primer parametro.
+		restApi.putCall('matches',$scope.match,function(){
+			$location.path('/home');	
+		});
+	}
+	
+	$scope.cancelEvent=function(){
 		$location.path('/home');
 	}
 }

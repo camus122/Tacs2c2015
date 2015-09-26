@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import utn.tacs.grupo2.app.model.Match;
+import utn.tacs.grupo2.app.model.Message;
 import utn.tacs.grupo2.app.util.ObjectMemoryRepository;
 
 @Controller
 @RequestMapping(value = "/matches")
 public class MatchServices {
+	
+	//Permite generar ids, para la memoria volatil.
+	private static int ID=0;
 	
 	/*
 	 * Punto2 - Como usuario quiero poder crear un partido de un deporte. En la creación se indicará el deporte que se jugará y cuantas personas son necesarias
@@ -26,9 +30,10 @@ public class MatchServices {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody String createMatch(@RequestBody  Match match){
+	public @ResponseBody Message createMatch(@RequestBody  Match match){
+		match.setId(""+ID++);
 		ObjectMemoryRepository.getMatches().add(match);
-		return "id-"+match.getSport()+"-"+match.getMaxCapacity();
+		return new Message("id-"+match.getSport()+"-"+match.getMaxCapacity());
 	}
 	
 	/**
@@ -37,12 +42,12 @@ public class MatchServices {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.PUT)
-	public @ResponseBody String updateMatch(@RequestBody  Match match){
+	public @ResponseBody Message updateMatch(@RequestBody  Match match){
 		List<Match> matches = ObjectMemoryRepository.getMatches();
 		int index=matches.indexOf(match);
 		matches.remove(index);
 		matches.add(match);
-		return "update-"+match.getSport()+"-"+match.getMaxCapacity();
+		return new Message("update-"+match.getSport()+"-"+match.getMaxCapacity());
 	}	
 	
 	/**
@@ -51,11 +56,11 @@ public class MatchServices {
 	 * @return
 	 */
 	@RequestMapping(value="/{matchId}",method = RequestMethod.GET)
-	public @ResponseBody Match getMatch(@PathVariable("matchId") String id){
+	public @ResponseBody Message getMatch(@PathVariable("matchId") String id){
 		List<Match> matches = ObjectMemoryRepository.getMatches();
 		for(Match match:matches){
 			if(id.equals(match.getId())){
-				return match;
+				return new Message(match);
 			}
 		}
 		throw new IllegalStateException("Si llego aca es porque no encontro y esot no deberia pasar.");
@@ -67,7 +72,7 @@ public class MatchServices {
 	 * @return
 	 */
 	@RequestMapping(value="/{matchId}",method = RequestMethod.DELETE)
-	public @ResponseBody String deleteMatch(@PathVariable("matchId") String id){
+	public @ResponseBody Message deleteMatch(@PathVariable("matchId") String id){
 		List<Match> matches = ObjectMemoryRepository.getMatches();
 		boolean remove=false;
 		int index=0;
@@ -83,7 +88,7 @@ public class MatchServices {
 		}else{
 			throw new IllegalStateException("Si llego aca es porque no encontro y esot no deberia pasar.");	
 		}
-		return "delete-"+id;
+		return new Message("delete-"+id);
 	}	
 
 }

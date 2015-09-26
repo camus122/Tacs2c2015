@@ -1,10 +1,12 @@
 //Controlador de matchTemplate
-function queryMatchController($scope,$location){
-	$scope.titulo='Consulda del Partido';	
-	$scope.successEvent=function(){
-		//accion del submit
-		alert('consulta');
-		//redirige la ruta valida cuando se redirige son las definidas en app.js  el primer parametro.
+function queryMatchController($scope,$location,$routeParams,restApi){
+	$scope.isConsulta=true;
+
+	restApi.getCall('matches/'+$routeParams.id,{},false,function(message){
+		$scope.match=message.body;
+	})
+	
+	$scope.back=function(){
 		$location.path('/home');
 	}
 }

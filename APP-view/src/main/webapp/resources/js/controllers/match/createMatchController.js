@@ -1,21 +1,15 @@
 //Controlador de matchTemplate
-function createMatchController($scope,$location){
-	$scope.titulo='Crear Partido';
-	
-	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-	
-	//esta funcion deberia, guardar en nuevo partido pero no funciona 
-	$scope.Save=function(){
-		$scope.partidosCreados.push({Deporte:$scope.nuevoPartido.deporte});
-	}
-	
+function createMatchController($scope,$location,restApi){
+	$scope.confirmLabel='Crear';
+	$scope.cancelLabel='Cancelar';
 	
 	$scope.successEvent=function(){
-		//accion del submit
-		alert('crear'); //"CREA"
-		
-		//redirige
-		//la ruta valida cuando se redirige son las definidas en app.js  el primer parametro.
+		restApi.postCall('matches',$scope.match,function(){
+			$location.path('/home');	
+		});
+	}
+	
+	$scope.cancelEvent=function(){
 		$location.path('/home');
 	}
 }

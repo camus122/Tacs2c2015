@@ -46,13 +46,56 @@ myModule.factory('restApi',  function($resource) {
 				
 				if(failureCallBack===undefined){
 					failureCallBack=function(){
-						showFailureModal();
+//						showFailureModal();
 					}
 				}
 				
 				return callInstance.save(requestBody,successCallBack,failureCallBack);
 	}
 
+		instance.putCall = 
+			function(restUri, requestBody, successCallBack, failureCallBack) {
+				var callInstance = $resource(restUri, {}, {
+					update : {
+						method : 'PUT'
+					}
+				});
+				if(successCallBack===undefined){
+					successCallBack=function(){
+						showSuccessModal();
+					}
+				}
+				
+				if(failureCallBack===undefined){
+					failureCallBack=function(){
+						showFailureModal();
+					}
+				}
+				
+				return callInstance.update(requestBody,successCallBack,failureCallBack);
+	}	
+		
+		instance.deleteCall = 
+			function(restUri, requestBody, successCallBack, failureCallBack) {
+				var callInstance = $resource(restUri, {}, {
+					remove : {
+						method : 'DELETE',
+						params : requestBody,
+					}
+				});
+				
+				if(successCallBack===undefined){
+					successCallBack=function(){
+						//Por default no hace nada.
+					}
+				}			
+				if(failureCallBack===undefined){
+					failureCallBack=function(){
+						showFailureModal();
+					}
+				}			
+				return callInstance.remove(requestBody,successCallBack,failureCallBack);
+			};	
 		 	
 	return instance;
 });

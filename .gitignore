@@ -3,5 +3,10 @@ APP-services/.settings/org.eclipse.jdt.core.prefs
 *.properties
 APP-services/target/maven-archiver/pom.properties
 *.lst
-APP-services/target/**
-APP-view/target/**
+APP-view/target/**/*.class
+APP-services/target/**/*.class
+APP-services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+*.lst
+*.class
+APP-view/.project
+*.prefs

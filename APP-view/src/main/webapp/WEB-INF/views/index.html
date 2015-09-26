@@ -26,6 +26,12 @@
 		<link rel="stylesheet" href="resources/libs/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="resources/libs/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		
+		<!-- Custom css -->
+		<link rel="stylesheet" href="resources/css/styles.css">
+		
+		<!-- Custom js -->
+		<script src="resources/js/global.js"></script>
+		
 		<!-- Controllers -->
 		<script src="resources/js/controllers/loginController.js"></script>
 		<script src="resources/js/controllers/homeController.js"></script>
@@ -35,11 +41,13 @@
 		
 		<!-- Modules -->
 		<script src="resources/js/modules/restApiModule.js"></script>
-<!-- 		<script src="resources/js/modules/uiGmapgoogle-maps.js"></script> -->
 		
 </head>
 
 
 <body ng-app="app" >
-	<div ng-view style="background-color: forestgreen;"></div>
+	<div class="page-header">
+	  <h1>Partidos-app <small>grupo 2</small></h1>
+	</div>
+	<div ng-view ></div>
 </html>

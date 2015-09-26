@@ -1,54 +1,57 @@
 <head>
 </head>
-<style>
-.wrapper{
-	width: 650px;
-	margin: 0 auto;
-	box-shadow: 5px 5px 5px #555;
-	background: #fff;
-	border-radius: 15px;
-	padding: 10px; 
-}
-
-.angular-google-map-container { height: 400px; }
-</style>
-
 <body>
-<br>
-<div class="wrapper">
-	<form ng-submit="successEvent()">
-		<h2>{{titulo}}</h2>
-		<table width = "60%"> 
-		<tr>
-			<td>Deporte:</td><td><input type="text" ng-model="nuevoPartido.deporte"></input></td>
-		</tr>
-		<tr>
-			<td>Lugar:</td><td><input type="text" ng-model="nuevoPartido.lugar"></input></td>
-		</tr>
-		<tr>
-			<td>Fecha:</td><td><input type="text" ng-model="nuevoPartido.fecha"></input></td>
-		</tr>
-		<tr>
-			<td>Hora:</td><td><input type="text" ng-model="nuevoPartido.hora"></input></td>
-		</tr>
-		<tr>
-			<td>Cantidad de jugadores titulares:</td><td><input type="text" ng-model="nuevoPartido.titulares"></input></td>
-		</tr>
-		<tr>
-			<td>Cantidad de jugadores suplente:</td><td><input type="text" ng-model="nuevoPartido.suplentes"></input></td>
-		</tr>
-		</table>
-		<button type="submit" >Volver</button>
-		<button ng-click="Save()">Guargar</button>
-	</form>
-	
-</div>
-<div>
-  <map center="current-location" zoom="6">
-    <info-window position="current-location" visible="true">
-      <span>Loation found using HTML5.</span>
-    </info-window>
-  </map>
-</div>
+
+<form class="formulario" ng-submit="successEvent()">
+  <div class="form-group">
+	<input type="text" class="form-control" placeholder="Titulo del evento" ng-model="match.title" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Deporte:</label>
+    <input type="text" class="form-control" placeholder="futbol / voley / paintball" ng-model="match.sport" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Cantidad de jugadores:</label>
+    <input type="number" class="form-control" ng-model="match.startingLineupQuantity" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Cantidad de suplentes:</label>
+    <input type="number" class="form-control" ng-model="match.maxCapacity" ng-disabled="isConsulta">
+  </div>  
+<!--   <div class="form-group"> -->
+<!--     <label >Fecha y hora:</label> -->
+<!--     <input type="datetime" class="form-control" placeholder="dd/mm/yyyy" ng-model="match.dateTime" required="required" ng-disabled="isConsulta"> -->
+<!--   </div> -->
+  <div class="form-group">
+    <label>Lugar:</label>
+    <input type="text" class="form-control" placeholder="ubicación" ng-model="match.location" required="required" ng-disabled="isConsulta">
+  </div>
+	<div class="contenedor-map">
+	  <map center="current-location" zoom="6" >
+	    <info-window position="current-location" visible="true">
+	      <span>Loation found using HTML5.</span>
+	    </info-window>
+	  </map>
+	</div>
+  <div class="form-group">
+    <label>Titulares:</label>
+    <span class="badge">Pedro</span>
+    <span class="badge">Jose</span>
+  </div>
+  <div class="form-group">
+    <label>Suplentes:</label>
+    <span class="badge">Pedro</span>
+    <span class="badge">Jose</span>
+  </div>  
+ 
+  <div class="contenedor-botones">
+	  <button type="button" class="btn btn-default" ng-show="isConsulta" ng-click=back()>Volver</button>
+	  <button  type="submit" class="btn btn-success" ng-hide="isConsulta">{{confirmLabel}}</button>
+	  <button type="button" class="btn btn-danger" ng-click="cancelEvent()" ng-hide="isConsulta">{{cancelLabel}}</button>
+  </div>
+</form>
+
+
 <br>	
 </body>
+
