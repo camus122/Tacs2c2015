@@ -1,4 +1,6 @@
+utn\tacs\grupo2\app\model\Message.class
 utn\tacs\grupo2\app\model\User.class
+utn\tacs\grupo2\app\model\Error.class
 utn\tacs\grupo2\app\model\Match.class
 utn\tacs\grupo2\app\model\Authentication.class
 utn\tacs\grupo2\app\services\MatchServices.class

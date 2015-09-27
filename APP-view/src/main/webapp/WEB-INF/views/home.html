@@ -1,19 +1,6 @@
-<!--Esto tiene que ir en otro lado, pero no se donde Latest compiled and minified CSS -->
-<style>
-.wrapper{
-	width: 650px;
-	margin: 0 auto;
-	box-shadow: 5px 5px 5px #555;
-	background: #fff;
-	border-radius: 15px;
-	padding: 10px; 
-
-}
-</style>
-
 <body>
 <br>
-	<div class= "wrapper">
+	<div>
 	<!-- Header-->
 		<header class= "header header-fixed navbar container-fluid">
 			<div class= "row">
@@ -26,7 +13,7 @@
 			</div>
 		</header>
 		
-		<div class= "box">
+		<div class= "box" >
 			<div class= "row">
 				<!-- main-->
 				<div class= "column col-sm-9" id="main">
@@ -34,48 +21,56 @@
 						<!-- content-->
 					</div>
 					<h2>Partidos Creados</h2>
-					<table width = "100%"> 
-						<tr>
-							<td>Deporte</td>
-							<td>Lugar</td>
-							<td>Fecha</td>
-							<td>Hora</td>
-							<td></td>
-						</tr>
- 						<tr ng-repeat = "creado in partidosCreados">
-							<td>{{creado.deporte}}</td>
-							<td>{{creado.lugar}}</td>
-							<td>{{creado.fecha}}</td>
-							<td>{{creado.hora}}</td>
-							<td>
-								<i ng-click="query(creado.id)"  class="glyphicon glyphicon-zoom-in"></i>
-								<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>	
-								<i ng-click="remove(creado.id)" class="glyphicon glyphicon-trash"></i>
-							</td>
-  						</tr>
-					</table>
+					<div class="container">
+						<div class="table-responsive">
+							<table class= "table table-bordered table-hover"> 
+								<tr class="success">
+									<td class="text-center"><b>Deporte</b></td>
+									<td class="text-center" ><b>Lugar</b></td>
+									<td class="text-center"><b>Fecha</b></td>
+									<td class="text-center"><b>Hora</b></td>
+									<td></td>
+								</tr>
+		 						<tr ng-repeat = "creado in partidosCreados">
+									<td>{{creado.deporte}}</td>
+									<td>{{creado.lugar}}</td>
+									<td>{{creado.fecha}}</td>
+									<td>{{creado.hora}}</td>
+									<td>
+										<i ng-click="query(creado.id)"  class="glyphicon glyphicon-zoom-in"></i>
+										<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>	
+										<i ng-click="remove(creado.id)" class="glyphicon glyphicon-trash"></i>
+									</td>
+		  						</tr>
+							</table>
+						</div>
+					</div>
 					<h2>Partidos Invitados</h2>
-					<table width = "100%"> 
-						<tr>
-							<td>Deporte</td>
-							<td>Lugar</td>
-							<td>Fecha</td>
-							<td>Hora</td>
-							<td>Id</td>
-							<td></td>
-						</tr>
- 						<tr ng-repeat = "invitado in partidosInvitado">
-							<td>{{invitado.deporte}}</td>
-							<td>{{invitado.lugar}}</td>
-							<td>{{invitado.fecha}}</td>
-							<td>{{invitado.hora}}</td>
-							<td>{{invitado.id}}</td>
-							<td>
-								<i ng-click="query(invitado.id)"  class="glyphicon glyphicon-zoom-in"></i>
-								<i ng-click="remove(invitado.id)" class="glyphicon glyphicon-trash"></i>
-							</td>
-  						</tr>
-					</table>
+					<div class="container">
+						<div class="table-responsive">
+							<table class= "table table-bordered table-hover"> 
+								<tr class="success">
+									<td class="text-center"><b>Deporte</b></td>
+									<td class="text-center" ><b>Lugar</b></td>
+									<td class="text-center"><b>Fecha</b></td>
+									<td class="text-center"><b>Hora</b></td>
+									<td></td>
+								</tr>
+		 						<tr ng-repeat = "invitado in partidosInvitado">
+									<td>{{invitado.deporte}}</td>
+									<td>{{invitado.lugar}}</td>
+									<td>{{invitado.fecha}}</td>
+									<td>{{invitado.hora}}</td>
+									<!-- Comento esto, lo puso miguel <td>{{invitado.id}}</td>   -->
+									<td>
+										<i ng-click="query(invitado.id)"  class="glyphicon glyphicon-zoom-in"></i>
+										<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>
+										<i ng-click="remove(invitado.id)" class="glyphicon glyphicon-trash"></i>
+									</td>
+		  						</tr>
+							</table>
+						</div>
+					</div>
 				</div>
 				<!-- main-->
 			</div>
