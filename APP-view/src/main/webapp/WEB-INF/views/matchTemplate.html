@@ -11,6 +11,10 @@
     <label>Deporte:</label>
     <input type="text" class="form-control" placeholder="futbol / voley / paintball" ng-model="match.sport" ng-disabled="isConsulta">
   </div>
+   <div class="form-group">
+    <label>Fecha:</label>
+    <input type="date" class="form-control" ng-model="match.dateTime" placeholder="dd-mm-yyyy" required="required" ng-disabled="isConsulta">
+  </div>
   <div class="form-group">
     <label>Cantidad de jugadores:</label>
     <input type="number" class="form-control" ng-model="match.startingLineupQuantity" required="required" ng-disabled="isConsulta">

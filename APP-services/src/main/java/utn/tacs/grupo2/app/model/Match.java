@@ -15,6 +15,7 @@ public class Match implements Serializable {
 	private int maxCapacity;
 	private int startingLineupQuantity;
 	private Date dateTime;
+//	private Date time;
 	private String location;
 	private List<User> registeredUsers;
 
@@ -66,9 +67,17 @@ public class Match implements Serializable {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setDate(Date dateTime) {
 		this.dateTime = dateTime;
 	}
+	
+//	public Date getTime() {
+//		return time;
+//	}
+//
+//	public void setTime(Date time) {
+//		this.time = time;
+//	}
 
 	public String getLocation() {
 		return location;
