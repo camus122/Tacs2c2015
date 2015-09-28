@@ -20,14 +20,12 @@ function createMatchController($scope,$location,restApi){
 		geocoder.geocode({
 		    "address": address
 		}, function(results) {
-		    console.log(results[0].geometry.location); //LatLng
-		    var location=results[0].geometry.location;
-		    $scope.match.location.latitud=location.H;
-		    $scope.match.location.longitud=location.L;
-		    var center = new google.maps.LatLng($scope.match.location.latitud, $scope.match.location.longitud);
-		    $scope.map.setCenter($scope.match.location);
-//		    $scope.map.setZoom(8);
+		    var coordinates=results[0].geometry.location;
+		    $scope.match.location.latitud=coordinates.H;
+		    $scope.match.location.longitud=coordinates.L;
+		    moveMarkCenter($scope.map,$scope.match.location)
 		});
 		
 	}
+	
 }
