@@ -32,10 +32,10 @@
 									<td></td>
 								</tr>
 		 						<tr ng-repeat = "creado in partidosCreados">
-									<td>{{creado.deporte}}</td>
-									<td>{{creado.lugar}}</td>
-									<td>{{creado.fecha}}</td>
-									<td>{{creado.hora}}</td>
+									<td>{{creado.sport}}</td>
+									<td>{{creado.location}}</td>
+									<td>{{creado.dateTime}}</td>
+									<td>{{creado.time}}</td>
 									<td>
 										<i ng-click="query(creado.id)"  class="glyphicon glyphicon-zoom-in"></i>
 										<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>	
@@ -64,7 +64,7 @@
 									<!-- Comento esto, lo puso miguel <td>{{invitado.id}}</td>   -->
 									<td>
 										<i ng-click="query(invitado.id)"  class="glyphicon glyphicon-zoom-in"></i>
-										<i ng-click="update(creado.id)" class="glyphicon glyphicon-pencil"></i>
+										<i ng-click="update(invitado.id)" class="glyphicon glyphicon-pencil"></i>
 										<i ng-click="remove(invitado.id)" class="glyphicon glyphicon-trash"></i>
 									</td>
 		  						</tr>

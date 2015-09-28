@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import utn.tacs.grupo2.app.model.Match;
+import utn.tacs.grupo2.app.model.Message;
 import utn.tacs.grupo2.app.model.User;
 import utn.tacs.grupo2.app.util.ObjectMemoryRepository;
 
@@ -24,13 +25,14 @@ public class UsersService {
 
 	/**
 	 * punto 4 - Como usuario quiero poder ver el estado de mis partidos creados (inscriptos titulares y suplentes)
-
+	 * 
+	 * Esta funcion, carga en la lista de Partidos creados, sus correspondientes parametros.
 	 * @return
 	 */
 	@RequestMapping(value="/me/created/matches",method=RequestMethod.GET)
-	public @ResponseBody List<Match> myMatches(){
-		//Falta agregar la logica donde se filtra por partidos mios
-		return ObjectMemoryRepository.getMatches(); 
+	public @ResponseBody Message myMatches(){
+		List<Match> matches = ObjectMemoryRepository.getMatches();
+		return new Message(matches);
 	}
 	
 	/**

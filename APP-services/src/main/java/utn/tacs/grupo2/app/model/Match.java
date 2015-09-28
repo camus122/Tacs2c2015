@@ -66,9 +66,11 @@ public class Match implements Serializable {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setDate(Date dateTime) {
 		this.dateTime = dateTime;
 	}
+	
+
 
 	public Location getLocation() {
 		return location;
