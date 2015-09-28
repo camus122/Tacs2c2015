@@ -21,6 +21,10 @@ function homeController($scope,$location,restApi){
 		restApi.deleteCall('matches/'+id,{});
 		//preguntar si se quiere borrar el registro
 		alert('Seguro que quiere borrar el registro'); //"CREA"
+		
+		restApi.getCall('users/me/created/matches',{},false,function(message){
+			$scope.partidosCreados=message.body;
+		})
 	}
 	
 		
