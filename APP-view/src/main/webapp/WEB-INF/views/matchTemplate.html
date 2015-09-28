@@ -25,10 +25,11 @@
 <!--   </div> -->
   <div class="form-group">
     <label>Lugar:</label>
-    <input type="text" class="form-control" placeholder="ubicación" ng-model="match.location" required="required" ng-disabled="isConsulta">
+    <input type="text" class="form-control" placeholder="ubicación" ng-model="match.location.address" required="required" ng-disabled="isConsulta">
+    <button type="button" class="btn btn-info" ng-hide="isConsulta" ng-click=searchLocation(match.location.address)>Buscar</button>
   </div>
 	<div class="contenedor-map">
-	  <map center="current-location" zoom="6" >
+	  <map center="current-location" zoom="13" >
 	    <info-window position="current-location" visible="true">
 	      <span>Loation found using HTML5.</span>
 	    </info-window>

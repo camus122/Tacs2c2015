@@ -15,7 +15,7 @@ public class Match implements Serializable {
 	private int maxCapacity;
 	private int startingLineupQuantity;
 	private Date dateTime;
-	private String location;
+	private Location location;
 	private List<User> registeredUsers;
 
 	public Match() {
@@ -70,11 +70,11 @@ public class Match implements Serializable {
 		this.dateTime = dateTime;
 	}
 
-	public String getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 
@@ -92,10 +92,10 @@ public class Match implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		Match otherObj=(Match)obj;
+		Match otherObj = (Match) obj;
 		return this.getId().equals(otherObj.getId());
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return this.getId().hashCode();
