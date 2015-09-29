@@ -21,7 +21,7 @@ public class MatchServices {
 	private static int ID=0;
 	
 	/*
-	 * Punto2 - Como usuario quiero poder crear un partido de un deporte. En la creación se indicará el deporte que se jugará y cuantas personas son necesarias
+	 * Punto2 - Como usuario quiero poder crear un partido de un deporte. En la creacion se indicara el deporte que se jugara y cuantas personas son necesarias
 	 */
 	
 	/**

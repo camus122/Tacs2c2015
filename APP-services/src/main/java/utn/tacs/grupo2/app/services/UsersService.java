@@ -36,7 +36,7 @@ public class UsersService {
 	}
 	
 	/**
-	 * punto 5 - Como usuario quiero poder ver aquellos partidos en los que me anoté.
+	 * punto 5 - Como usuario quiero poder ver aquellos partidos en los que me anoto.
 	 * @return
 	 */
 	@RequestMapping(value="/me/joined/matches",method=RequestMethod.GET)
@@ -83,7 +83,7 @@ public class UsersService {
 	}
 	
 	/**
-	 * punto 6 - Como usuario quiero recomendar a un amigo un partido que creé para que pueda anotarse.
+	 * punto 6 - Como usuario quiero recomendar a un amigo un partido que creo para que pueda anotarse.
 	 * @param matchFriendId
 	 * @return
 	 */
@@ -104,7 +104,7 @@ public class UsersService {
 	}
 	
 	/**
-	 * punto 11 - Como usuario que se anotó en un partido quiero poder borrarme del mismo.
+	 * punto 11 - Como usuario que se anoto en un partido quiero poder borrarme del mismo.
 	 * @param matchFriendId
 	 * @return
 	 */
@@ -113,7 +113,7 @@ public class UsersService {
 		@SuppressWarnings("unused")
 		List<Match> myMatches=joinMatches();
 		//iterar y borrarel dato
-		return "Se borró del partido-"+myMatchId;
+		return "Se borro del partido-"+myMatchId;
 	}
 	
 	
