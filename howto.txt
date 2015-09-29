@@ -1,38 +1,22 @@
 Componentes:
 -Spring-MVC (para exponer los servicios REST)
--Java-1.6.0 
--Tomcat-6.0.44 (download: http://tomcat.apache.org/tomcat-6.0-doc/index.html)
--maven-3.2.5 (download: http://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/)
+-Java-1.7.0 o mayor
+-maven-3.3.3 (download: https://maven.apache.org/download.cgi)
 
-/*Dado que se tuvieron inconvenites al mometno de querer emplear el plugin de maven jetty
- * se opto por un desplieuge manual de la aplicacion a fin de llegar con los tiempos de la entrega
- * dada esta situacion los pasos a seguir son los siguientes*/
-
-Paso-1: Instalacion tomat
-	Extraer el comprimido en un directorio, {path-tomcat}.
-
-Paso-2: Instalacion maven
+Paso-1: Instalacion maven
 	Extraer el comprimido en un directorio, {path-maven}.
 	Agregar al PATH del ambiente {path-maven/bin}  (ej: {path}/apache-maven-x.y.z/bin)
 
-Paso-3: Compilacion
+Paso-2: Compilacion
 	Una vez realizado el pull del workspace posicionarse en el directorio del proyecto APP-view
 	Ejecutar: 
 		-mvn clean -f multi-module-pom.xml
 		-mvn install -f multi-module-pom.xml
-Paso-4: Deploy (manual)
-	Ingresar en el directorio de APP-view/target
-	Copiar el archivo APP-project.war
-	Pegarlo en {path-tomcat}/webapss
-	Ingresar a {path-tomcat}/bin
-	Ejecutar el comando startup
+Paso-4: mvn jetty:run
 
-Entrega_01:
-	git-url: 
-	tag-name:
+Paso-5: localhost:8080/APP
 
 Pendiente:
-	-Aplicar el plugin de maven jetty.
 	-Exportar y mejorar los java docs.
 	-Realizar test de los servicios expuestos.
 
