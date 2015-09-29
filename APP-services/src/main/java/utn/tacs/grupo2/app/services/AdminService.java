@@ -16,7 +16,7 @@ import utn.tacs.grupo2.app.model.User;
 public class AdminService {
 	
 	/**
-	 * punto 12 - Como administrador de la aplicación quiero ver un panel de control indicando cantidad de partidos creados e inscriptos.
+	 * punto 12 - Como administrador de la aplicacion quiero ver un panel de control indicando cantidad de partidos creados e inscriptos.
 
 	 * @return
 	 */
