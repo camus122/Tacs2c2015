@@ -40,9 +40,9 @@ public class UsersService {
 	 * @return
 	 */
 	@RequestMapping(value="/me/joined/matches",method=RequestMethod.GET)
-	public @ResponseBody List<Match> joinMatches(){
+	public @ResponseBody Message joinMatches(){
 		//Falta agregar la logica donde se filtra por los partidos que me anote
-		return ObjectMemoryRepository.getMatches(); 
+		return new Message(ObjectMemoryRepository.getMatches()); 
 	}	
 
 	
@@ -99,8 +99,8 @@ public class UsersService {
 	 * @return
 	 */
 	@RequestMapping(value="/me/recommended/matches",method=RequestMethod.GET)
-	public @ResponseBody List<Match> recommendedMatches(){
-			return ObjectMemoryRepository.getRecomendedMatches();
+	public @ResponseBody Message recommendedMatches(){
+			return new Message(ObjectMemoryRepository.getRecomendedMatches());
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class UsersService {
 	@RequestMapping(value="/unsubscribe/{myMatchId}",method=RequestMethod.DELETE)
 	public @ResponseBody String unsubscibe(@PathVariable("myMatchId") String myMatchId){
 		@SuppressWarnings("unused")
-		List<Match> myMatches=joinMatches();
+		List<Match> myMatches=(List<Match>) joinMatches().getBody();
 		//iterar y borrarel dato
 		return "Se borró del partido-"+myMatchId;
 	}

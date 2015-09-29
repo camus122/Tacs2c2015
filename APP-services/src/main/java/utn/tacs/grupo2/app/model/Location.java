@@ -9,6 +9,15 @@ public class Location implements Serializable {
 	private String latitud;
 	private String longitud;
 
+	public Location(){
+	}
+	
+	public Location(String address,String latitud,String longitud){
+		this.address=address;
+		this.latitud=latitud;
+		this.longitud=longitud;
+	}
+	
 	public String getAddress() {
 		return address;
 	}

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import utn.tacs.grupo2.app.model.Location;
 import utn.tacs.grupo2.app.model.Match;
 import utn.tacs.grupo2.app.model.User;
 
@@ -64,17 +65,24 @@ public class ObjectMemoryRepository implements Serializable{
 		
 		
 		Match m1 = new Match();
+		m1.setId("0");
 		m1.setMaxCapacity(22);
+		m1.setTitle("Cumple de fer");
 		m1.setStartingLineupQuantity(23);
 		m1.setSport("Voley");;
 		m1.addUser(user4);
 		m1.addUser(user5);
 		m1.addUser(user);
+		m1.setLocation(new Location());
+		m1.setLocation(new Location("casa", "0", "0"));
 		recomendados.add(m1);
 		
 		Match m2 = new Match();
+		m2.setId("1");
+		m2.setTitle("Congresista despedido");
 		m2.setMaxCapacity(22);
 		m2.setStartingLineupQuantity(23);
+		m2.setLocation(new Location("Un lugar", "40", "-35"));
 		m2.setSport("Fulbo");;
 		m2.addUser(user2);
 		m2.addUser(user3);

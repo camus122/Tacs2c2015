@@ -91,4 +91,24 @@ public class MatchServices {
 		return new Message("delete-"+id);
 	}	
 
+	@RequestMapping(value="/recommended/{matchId}",method = RequestMethod.DELETE)
+	public @ResponseBody Message deleteRecommendedMatch(@PathVariable("matchId") String id){
+		List<Match> matches = ObjectMemoryRepository.getRecomendedMatches();
+		boolean remove=false;
+		int index=0;
+		for(Match match:matches){
+			if(id.equals(match.getId())){
+				remove=true;
+				break;
+			}
+			index++;
+		}
+		if(remove){
+			matches.remove(index);
+		}else{
+			throw new IllegalStateException("Si llego aca es porque no encontro y esot no deberia pasar.");	
+		}
+		return new Message("delete-"+id);
+	}		
+	
 }
