@@ -2,27 +2,17 @@
 	<meta charset="UTF-8">
 </head>
 <style>
-body{
-	margin: 100px auto;
-	text-align: center;
-	width: 400px;
-}
-
-h2{
-	margin-bottom: 30px;
-}
+	body{
+		margin: 100px auto;
+		text-align: center;
+		width: 400px;
+	}
+	
+	h2{
+		margin-bottom: 30px;
+	}
 </style>
 <body>
 	<h2> Login Facebook </h2>
 	<button  type="button" class="btn btn-primary" ng-click="loginFacebook()">Iniciar sesión</button>
-	<script>
-		// Load the SDK asynchronously
-	  	(function(d, s, id) {
-	    	var js, fjs = d.getElementsByTagName(s)[0];
-	    	if (d.getElementById(id)) return;
-	    	js = d.createElement(s); js.id = id;
-	    	js.src = "//connect.facebook.net/en_US/sdk.js";
-	    	fjs.parentNode.insertBefore(js, fjs);
-	  }(document, 'script', 'facebook-jssdk'));
-	</script>
 </body>
