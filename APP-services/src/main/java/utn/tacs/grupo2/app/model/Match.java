@@ -1,9 +1,13 @@
 package utn.tacs.grupo2.app.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class Match implements Serializable {
 
@@ -17,7 +21,10 @@ public class Match implements Serializable {
 	private Date dateTime;
 	private Location location;
 	private List<User> registeredUsers;
+	//private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+	//private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:MM");
 
+	
 	public Match() {
 		registeredUsers = new ArrayList<User>();
 	}
@@ -92,6 +99,16 @@ public class Match implements Serializable {
 		this.registeredUsers = registeredUsers;
 	}
 
+//	@ModelAttribute
+//	public String getDate() {
+//		return dateFormat.format(dateTime);
+//	}
+//	
+//	@ModelAttribute
+//	public String getTime() {
+//		return timeFormat.format(dateTime);
+//	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		Match otherObj = (Match) obj;

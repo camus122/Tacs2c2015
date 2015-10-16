@@ -2,6 +2,7 @@ package utn.tacs.grupo2.app.util;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,6 +76,7 @@ public class ObjectMemoryRepository implements Serializable{
 		m1.addUser(user);
 		m1.setLocation(new Location());
 		m1.setLocation(new Location("casa", "0", "0"));
+		m1.setDate(new Date(System.currentTimeMillis()));
 		recomendados.add(m1);
 		
 		Match m2 = new Match();

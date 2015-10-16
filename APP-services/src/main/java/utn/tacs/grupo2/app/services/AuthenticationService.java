@@ -1,7 +1,10 @@
 package utn.tacs.grupo2.app.services;
 
-//import facebook4j.Facebook;
-//import facebook4j.FacebookException;
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
+import facebook4j.FacebookFactory;
+import facebook4j.User;
+import facebook4j.auth.AccessToken;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,24 +23,31 @@ public class AuthenticationService {
 	 * @return
 	 */
 	
-//	private static String appID ="1";
-//	private static String appSecret ="1";
-//	private static String accessToken ="1";
+	private static String appID ="909447679129341";
+	private static String appSecret ="fdda66dac48941f0c5fe5e4fe7e0a99f";
+	private static String accessToken ="909447679129341|Mw3_jie53Kz1W9yBdbZxkZRrYQU";
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public @ResponseBody String loginFacebook(@RequestBody  Authentication authentication){
 		
 		
 		
-		//se establece la conexión con Facebook
-		//Facebook facebook = new FacebookFactory().getInstance();
-		//facebook.setOAuthAppId(appID, appSecret);
+		//se establece la conexiï¿½n con Facebook
+		Facebook facebook = new FacebookFactory().getInstance();
+		facebook.setOAuthAppId(appID, appSecret);
 		//facebook.setOAuthPermissions(commaSeparetedPermissions);
-		//facebook.setOAuthAccessToken(new AccessToken(accessToken, null));
+		facebook.setOAuthAccessToken(new AccessToken(accessToken, null));
 		
 		
 		//se usa la api
-		//User user=facebook.getMe();
+		try {
+			User user=facebook.getMe();
+			System.out.println("Mi nombre:");
+			System.out.println(user.getName());
+		} catch (FacebookException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		String token="unToken";
