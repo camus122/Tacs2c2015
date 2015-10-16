@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import utn.tacs.grupo2.app.model.Authentication;
 
 @Controller
+@RequestMapping(value = "/login")
 public class AuthenticationService {
 
 	/**
@@ -27,12 +28,12 @@ public class AuthenticationService {
 	private static String appSecret ="fdda66dac48941f0c5fe5e4fe7e0a99f";
 	private static String accessToken ="909447679129341|Mw3_jie53Kz1W9yBdbZxkZRrYQU";
 	
-	@RequestMapping(value="/login",method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody String loginFacebook(@RequestBody  Authentication authentication){
 		
 		
 		
-		//se establece la conexi�n con Facebook
+		//se establece la conexion con Facebook
 		Facebook facebook = new FacebookFactory().getInstance();
 		facebook.setOAuthAppId(appID, appSecret);
 		//facebook.setOAuthPermissions(commaSeparetedPermissions);
