@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- jquery -->
+		<script src="resources/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<!-- lodash -->
+		<script src="resources/libs/lodash/lodash.min.js"></script>
+
+		<!-- angularJs -->
+		<script src="resources/libs/angularjs/angular.min.js"></script>
+		<script src="resources/libs/angularjs/angular-resource.min.js"></script>
+		<script src="resources/libs/angularjs/angular-route.min.js"></script>
+		<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+		<!--Directivas de ngmap: http://ngmap.github.io/ -->
+		<script src="resources/libs/google-map/ng-map.min.js"></script>
+		
+		
+		
+		<!-- Aplication controller -->
+		<script src="resources/js/app.js"></script>
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="resources/libs/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="resources/libs/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="resources/libs/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<!-- Custom css -->
+		<link rel="stylesheet" href="resources/css/styles.css">
+		
+		<!-- Custom js -->
+		<script src="resources/js/global.js"></script>
+		
+		<!-- Controllers -->
+		<script src="resources/js/controllers/loginController.js"></script>
+		<script src="resources/js/controllers/homeController.js"></script>
+		<script src="resources/js/controllers/match/queryMatchController.js"></script>
+		<script src="resources/js/controllers/match/updateMatchController.js"></script>
+		<script src="resources/js/controllers/match/createMatchController.js"></script>
+		
+		<!-- Modules -->
+		<script src="resources/js/modules/restApiModule.js"></script>
+		
+</head>
+
+
+<body ng-app="app" >
+	<div class="page-header">
+	  <h1>Partidos-app <small>grupo 2</small></h1>
+	</div>
+	<div ng-view ></div>
+</html>

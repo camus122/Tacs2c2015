@@ -1,0 +1,93 @@
+<body>
+<br>
+	<div>
+	<!-- Header-->
+		<header class= "header header-fixed navbar container-fluid">
+			<div class= "row">
+				<div class="brand col-sm-3">
+					<a href="#" class="navbar-brand">
+					<i class="glyphicon glyphicon-cloud"></i>
+					<span class = "heading-font">{{titulo}}</span>	
+					</a>
+				</div>
+			</div>
+		</header>
+		
+		<div class= "box" >
+			<div class= "row">
+				<!-- main-->
+				<div class= "column col-sm-9" id="main" >
+					<div class="full col-sm-9">
+						<!-- content-->
+					</div>
+					<h2>Partidos Anotados</h2>
+					<div ng-show="partidosAnotados == undefined || partidosAnotados.length==0">
+						<div class="alert alert-info" role="alert">No estas anotado nignun partido.</div>
+					</div>
+					<div class="container" ng-show="partidosAnotados != undefined && partidosAnotados.length>0">
+						<div class="table-responsive">
+							<table class= "table table-bordered table-hover"> 
+								<tr class="success">
+									<td class="text-center"><b>Evento</b></td>
+									<td class="text-center"><b>Deporte</b></td>
+									<td class="text-center" ><b>Lugar</b></td>
+									<td class="text-center"><b>Fecha</b></td>
+									<td class="text-center"><b>Hora</b></td>
+									<td></td>
+								</tr>
+		 						<tr ng-repeat = "anotado in partidosAnotados">
+		 							<td>{{anotado.title}}</td>
+									<td>{{anotado.sport}}</td>
+									<td>{{anotado.location.address}}</td>
+									<td>{{anotado.dateTime}}</td>
+									<td>{{anotado.time}}</td>
+									<td>
+										<i ng-click="query(anotado.id)"  style="cursor:pointer" class="glyphicon glyphicon-zoom-in"></i>
+										<i ng-click="update(anotado.id)" style="cursor:pointer" class="glyphicon glyphicon-pencil"></i>	
+										<i ng-click="removeAnotado(anotado.id)"  style="cursor:pointer" class="glyphicon glyphicon-trash"></i>
+									</td>
+		  						</tr>
+							</table>
+						</div>
+					</div>
+					<h2>Partidos Invitados</h2>
+					<div ng-show="partidosRecomendados == undefined  || partidosRecomendados.length==0">
+						<div class="alert alert-info" role="alert">No te recomendado ningun partido.</div>
+					</div>
+					<div class="container"  ng-show="partidosRecomendados != undefined && partidosRecomendados.length>0">
+						<div class="table-responsive">
+							<table class= "table table-bordered table-hover"> 
+								<tr class="success">
+									<td class="text-center"><b>Evento</b></td>
+									<td class="text-center"><b>Deporte</b></td>
+									<td class="text-center" ><b>Lugar</b></td>
+									<td class="text-center"><b>Fecha</b></td>
+									<td class="text-center"><b>Hora</b></td>
+									<td></td>
+								</tr>
+		 						<tr ng-repeat = "recomendado in partidosRecomendados">
+		 							<td>{{recomendado.title}}</td>
+									<td>{{recomendado.sport}}</td>
+									<td>{{recomendado.location.address}}</td>
+									<td>{{recomendado.dateTime}}</td>
+									<td>{{recomendado.time}}</td>
+									<!-- Comento esto, lo puso miguel <td>{{invitado.id}}</td>   -->
+									<td>
+										<i ng-click="query(recomendado.id)" style="cursor:pointer"  class="glyphicon glyphicon-zoom-in"></i>
+										<i ng-click="update(recomendado.id)" style="cursor:pointer"  class="glyphicon glyphicon-pencil"></i>
+										<i ng-click="removeRecomendado(recomendado.id)" style="cursor:pointer"  class="glyphicon glyphicon-trash"></i>
+									</td>
+		  						</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- main-->
+			</div>
+			<button  type="button" class="btn btn-success" ng-click="create()">Crear</button>
+		</div>
+	</div>
+	
+	<br>
+</body>
+

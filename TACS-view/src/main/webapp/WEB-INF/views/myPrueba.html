@@ -1,0 +1,12 @@
+<head>
+	<style type="text/css">
+		.angular-google-map-container { height: 400px; }
+	</style>
+</head>
+<body>
+	<input ng-model="email">
+	{{email}}
+	<button ng-click="mostrar()" ng-hide="deboMostrar">boton</button>
+	{{informacion}}
+	<ui-gmap-google-map center='map.center' zoom='map.zoom' ></ui-gmap-google-map>
+</body>

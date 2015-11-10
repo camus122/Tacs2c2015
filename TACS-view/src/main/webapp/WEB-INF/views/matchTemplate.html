@@ -1,0 +1,67 @@
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<form class="formulario" ng-submit="successEvent()">
+  <div class="form-group">
+	<input type="text" class="form-control" placeholder="Titulo del evento" ng-model="match.title" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Deporte:</label>
+    <input type="text" class="form-control" placeholder="futbol / voley / paintball" ng-model="match.sport" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Fecha:</label>
+    <input type="date" class="form-control" ng-model="match.dateTime" placeholder="dd-mm-yyyy" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Hora:</label>
+    <input type="time"  class="form-control"  placeholder="HH:mm:ss" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Cantidad de jugadores:</label>
+    <input type="number" class="form-control" ng-model="match.startingLineupQuantity" required="required" ng-disabled="isConsulta">
+  </div>
+  <div class="form-group">
+    <label>Cantidad de suplentes:</label>
+    <input type="number" class="form-control" ng-model="match.maxCapacity" ng-disabled="isConsulta">
+  </div>  
+<!--   <div class="form-group"> -->
+<!--     <label >Fecha y hora:</label> -->
+<!--     <input type="datetime" class="form-control" placeholder="dd/mm/yyyy" ng-model="match.dateTime" required="required" ng-disabled="isConsulta"> -->
+<!--   </div> -->
+  <div class="form-group">
+    <label>Lugar:</label>
+    <input type="text" class="form-control" placeholder="ubicación" ng-model="match.location.address" required="required" ng-disabled="isConsulta">
+    <button type="button" class="btn btn-info" ng-hide="isConsulta" ng-click=searchLocation(match.location.address)>Buscar</button>
+  </div>
+	<div class="contenedor-map">
+	  <map center="current-location" zoom="13" >
+	    <info-window position="current-location" visible="true">
+	      <span>Loation found using HTML5.</span>
+	    </info-window>
+	  </map>
+	</div>
+  <div class="form-group">
+    <label>Titulares:</label>
+    <span class="badge">Pedro</span>
+    <span class="badge">Jose</span>
+  </div>
+  <div class="form-group">
+    <label>Suplentes:</label>
+    <span class="badge">Pedro</span>
+    <span class="badge">Jose</span>
+  </div>  
+ 
+  <div class="contenedor-botones">
+	  <button type="button" class="btn btn-success" ng-show="isConsulta" ng-click=back()>Volver</button>
+	  <button  type="submit" class="btn btn-success" ng-hide="isConsulta">{{confirmLabel}}</button>
+	  <button type="button" class="btn btn-danger" ng-click="cancelEvent()" ng-hide="isConsulta">{{cancelLabel}}</button>
+  </div>
+</form>
+
+
+<br>	
+</body>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+	
+
+	<import resource="classpath:config-services.xml"/>
+    
+    <!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".html" />
+    </bean>
+    
+    
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Este servlet es un handler para html, el default viene con un servlet para *.jsp -->    
+	<mvc:default-servlet-handler/>
+	
+    
+    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:view-controller path="app/login" view-name="login"/>
+    <mvc:view-controller path="app/home" view-name="home"/>
+    <mvc:view-controller path="app/matchTemplate" view-name="matchTemplate"/>
+    
+    
+	<!-- Beans -->
+<!-- 	<bean id="sessionObjectRepository" class="lc.projects.services.cache.SessionObjectRepositoryMap" scope="session"> -->
+<!-- 		<aop:scoped-proxy /> -->
+<!-- 	</bean> -->
+	
+
+
+	
+</beans>

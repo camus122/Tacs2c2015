@@ -24,7 +24,7 @@ public class AuthenticationService {
 	 * @return
 	 */
 	
-	private static String appID ="909447679129341";
+	private static String appID ="870210616427644";
 	private static String appSecret ="fdda66dac48941f0c5fe5e4fe7e0a99f";
 	private static String accessToken ="909447679129341|Mw3_jie53Kz1W9yBdbZxkZRrYQU";
 	
