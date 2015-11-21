@@ -3,16 +3,21 @@ package utn.tacs.grupo2.app.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import utn.tacs.grupo2.app.model.Error;
 import utn.tacs.grupo2.app.model.Match;
 import utn.tacs.grupo2.app.model.Message;
 import utn.tacs.grupo2.app.model.User;
 import utn.tacs.grupo2.app.util.ObjectMemoryRepository;
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
 
 @Controller
 @RequestMapping(value = "/users")
@@ -21,6 +26,19 @@ public class UsersService {
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody List<User> getUsers(){
 		return ObjectMemoryRepository.getUsers();
+	}
+	
+	
+	@RequestMapping(value="/me/info",method=RequestMethod.GET)
+	public @ResponseBody Message meInfo(HttpServletRequest request){
+		Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+		Message message=new Message();
+		try {
+			message.setBody(facebook.getMe());
+		} catch (FacebookException e) {
+			message.setError(new Error(e.getCause().getMessage()));
+		}
+		return message;
 	}
 
 	/**

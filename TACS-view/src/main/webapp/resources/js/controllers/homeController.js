@@ -2,6 +2,10 @@
 function homeController($scope,$location,restApi){
 	$scope.titulo='Tp tacs 2015'
 	
+	restApi.getCall('users/me/info',{},false,function(data){
+		$scope.user=data.body;		
+	})
+		
 	cargarAnotados();
 	cargarRecomendados();
 	
